@@ -1,15 +1,16 @@
-<!-- <p>template-form works!</p> -->
-<h1 class="mb-4">User Registration using Template driven form</h1>
-<form class="form-signin">
-    <input type="email" id="inputEmail" class="form-control" placeholder="Full Name" required="">
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="">
-    <input type="email" id="inputEmail" class="form-control" placeholder="Phone No." required="">
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-    <input type="email" id="inputEmail" class="form-control" placeholder="Confirm Password" required="">
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Agree with Terms and Conditions
-      </label>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+<div style="text-align: center">
+  <h1 class="mb-4">User Registration using Template driven form</h1>
+</div>
+<form class="form-signin" #registerForm="ngForm" (ngSubmit) = "userRegistration()">
+  <input type="text" id="inputName" name="full-name" #fullName="ngModel" [(ngModel)]="form.fullName" class="form-control" placeholder="Full Name" required="" ngModel>
+  <input type="email" id="inputEmail" name="email" #email="ngModel" [(ngModel)]="form.email" class="form-control" placeholder="Email address" required="" ngModel>
+  <input type="text" id="inputPhone" name="phone" #phone="ngModel" [(ngModel)]="form.phone" class="form-control" placeholder="Phone No." required="" ngModel>
+  <input type="password" id="inputPassword" name="password" #password="ngModel" [(ngModel)]="form.password" class="form-control" placeholder="Password" required="" ngModel>
+  <input type="password" id="inputPassword" name="confirm-password" #confirmPassword="ngModel" [(ngModel)]="form.confirmPassword" class="form-control" placeholder="Confirm Password" required="" ngModel>
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" name="terms-conditions" #termsConditions="ngModel" [(ngModel)]="form.termsAndConditions" value="remember-me"> Agree with Terms and Conditions
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
 </form>
